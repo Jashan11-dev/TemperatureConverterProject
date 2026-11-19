@@ -1,24 +1,31 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TemperatureConverterTest {
 
+    private static final double DELTA = 0.0001;
+
+    private TemperatureConverter converter;
+
+    @BeforeEach
+    void setUp() {
+        converter = new TemperatureConverter();
+    }
+
     @Test
     void celsiusToFahrenheit_zeroCelsius_returns32() {
-        TemperatureConverter converter = new TemperatureConverter();
-        assertEquals(32.0, converter.celsiusToFahrenheit(0.0), 0.0001);
+        assertEquals(32.0, converter.celsiusToFahrenheit(0.0), DELTA);
     }
 
     @Test
     void fahrenheitToCelsius_212Fahrenheit_returns100() {
-        TemperatureConverter converter = new TemperatureConverter();
-        assertEquals(100.0, converter.fahrenheitToCelsius(212.0), 0.0001);
+        assertEquals(100.0, converter.fahrenheitToCelsius(212.0), DELTA);
     }
 
     @Test
     void celsiusToKelvin_zeroCelsius_returns273point15() {
-        TemperatureConverter converter = new TemperatureConverter();
-        assertEquals(273.15, converter.celsiusToKelvin(0.0), 0.0001);
+        assertEquals(273.15, converter.celsiusToKelvin(0.0), DELTA);
     }
 }
