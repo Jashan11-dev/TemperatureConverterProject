@@ -15,4 +15,10 @@ public class TemperatureConverterTest {
         TemperatureConverter converter = new TemperatureConverter();
         assertEquals(100.0, converter.fahrenheitToCelsius(212.0), 0.0001);
     }
+
+    @Test
+    void celsiusToKelvin_zeroCelsius_returns273point15() {
+        TemperatureConverter converter = new TemperatureConverter();
+        assertEquals(273.15, converter.celsiusToKelvin(0.0), 0.0001);
+    }
 }
